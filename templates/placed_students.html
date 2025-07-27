@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placed Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0074D9;
+            padding: 20px 0;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Styling for Heading */
+        .title-container {
+            text-align: center;
+            margin-top: 60px;
+            background: #004080;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Scrollable Table */
+        .scrollable-table {
+            width: 85%;
+            margin: 30px auto;
+            height: 450px; /* Adjust height */
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #004080;
+            color: white;
+        }
+        
+        /* Alternate Row Colors */
+        tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        /* Center-align Company Names */
+        td:nth-child(4) {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="/company_registration">Company Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="/candidate_registration">Candidate Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/placed_students">Placed Students</a></li>
+        </ul>
+    </nav>
+
+    <br>
+
+    <!-- Title -->
+    <div class="title-container">
+        <h2>Placed Students (2022-2023)</h2>
+    </div>
+
+    <div class="scrollable-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sl No</th>
+                    <th>USN</th>
+                    <th>Name of the Student</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>4MC19IS033</td><td>Niharika GH</td><td>Sasken</td></tr>
+                <tr><td>2</td><td>4MC19IS013</td><td>ASHUTOSH</td><td>Saankhya Labs Pvt Ltd</td></tr>
+                <tr><td>3</td><td>4MC19IS021</td><td>Hemashree R L</td><td>Global Quest/ Training</td></tr>
+                <tr><td>4</td><td>4MC19IS042</td><td>Ranju P.S.R</td><td>Global Quest/ Training</td></tr>
+                <tr><td>5</td><td>4MC19IS060</td><td>Vidyashree C N</td><td>Global Quest/ Training</td></tr>
+                <tr><td>6</td><td>4MC19IS002</td><td>AISIRI RAJ</td><td>Mercedes Benz</td></tr>
+                <tr><td>7</td><td>4MC19IS059</td><td>Tribhuvan HG</td><td>Mercedes Benz</td></tr>
+                <tr><td>8</td><td>4MC19IS041</td><td>Rajeeva lochana B G</td><td>TCS</td></tr>
+                <tr><td>9</td><td>4MC19IS058</td><td>Tejas KR</td><td>TCS</td></tr>
+                <tr><td>10</td><td>4MC19IS030</td><td>Manjunath G M</td><td>TCS</td></tr>
+                <tr><td>11</td><td>4MC19IS040</td><td>RAJAT RAVINDRA KOORSE</td><td>TATA Elxsi</td></tr>
+                <tr><td>12</td><td>4MC19IS026</td><td>LIKHITH BA</td><td>TATA Elxsi</td></tr>
+                <tr><td>13</td><td>4MC19IS049</td><td>SANJANA HJ</td><td>TATA Elxsi</td></tr>
+                <tr><td>14</td><td>4MC19IS027</td><td>MADEEHA IRAM</td><td>Tech Mahindra</td></tr>
+                <tr><td>15</td><td>4MC19IS010</td><td>Anushree.R</td><td>Spurtreetech</td></tr>
+                <tr><td>16</td><td>4MC19IS054</td><td>Sinchana J</td><td>Devtools</td></tr>
+                <tr><td>17</td><td>4MC19IS050</td><td>Sanvitha HS (DO)</td><td>Rinex Technologies</td></tr>
+                <tr><td>18</td><td>4MC19IS032</td><td>Nidhi K.S (DO)</td><td>X-workz</td></tr>
+                <tr><td>19</td><td>4MC19IS040</td><td>RAJAT RAVINDRA KOORSE</td><td>ETHNUS</td></tr>
+                <tr><td>20</td><td>4MC19IS017</td><td>DEV NARAYAN K</td><td>Yokogawa</td></tr>
+                <tr><td>21</td><td>4MC19IS019</td><td>Dhanya L Narayan</td><td>Yokogawa</td></tr>
+                <tr><td>22</td><td>4MC19IS047</td><td>Sai lekhana</td><td>Yokogawa</td></tr>
+                <tr><td>23</td><td>4MC19IS008</td><td>ANAS SARVAR S</td><td>Yokogawa</td></tr>
+                <tr><td>24</td><td>4MC19IS032</td><td>Nidhi K.S (DO)</td><td>KGIS</td></tr>
+                <tr><td>25</td><td>4MC19IS019</td><td>Dhanya L Narayan</td><td>KGIS</td></tr>
+                <tr><td>26</td><td>4MC19IS047</td><td>Sai Lekhana</td><td>KGIS</td></tr>
+                <tr><td>27</td><td>4MC19IS050</td><td>Sanvitha HS (DO)</td><td>KGIS</td></tr>
+                <tr><td>28</td><td>4MC19IS054</td><td>Sinchana J</td><td>Devtools</td></tr>
+                <tr><td>29</td><td>4MC19IS050</td><td>Sanvitha HS (DO)</td><td>Rinex Technologies</td></tr>
+                <tr><td>30</td><td>4MC19IS008</td><td>ANAS SARVAR S</td><td>Rinex Technologies</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Title for 2021-2022 -->
+    <div class="title-container">
+        <h2>Placed Students (2021-2022)</h2>
+    </div>
+
+    <div class="scrollable-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sl No</th>
+                    <th>USN</th>
+                    <th>Name of the Student</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>4MC18IS001</td><td>Abhishek H S</td><td>Verzeo</td></tr>
+                <tr><td>2</td><td>4MC18IS002</td><td>Adithya H R</td><td>Globallogic, Snapmint</td></tr>
+                <tr><td>3</td><td>4MC18IS003</td><td>Adwin H R</td><td>One Trust</td></tr>
+                <tr><td>4</td><td>4MC18IS004</td><td>Ankitha Kiron</td><td>Higher Studies</td></tr>
+                <tr><td>5</td><td>4MC18IS005</td><td>Ashwin Athreya H S</td><td>Capgemini</td></tr>
+                <tr><td>6</td><td>4MC18IS006</td><td>Ashwini M S</td><td>TCS</td></tr>
+                <tr><td>7</td><td>4MC18IS007</td><td>Chandana K S</td><td>Capgemini</td></tr>
+                <tr><td>8</td><td>4MC18IS008</td><td>Ganavi M</td><td>Wipro</td></tr>
+                <tr><td>9</td><td>4MC18IS009</td><td>H A Tejaswini</td><td>Happiest Minds</td></tr>
+                <tr><td>10</td><td>4MC18IS010</td><td>H P Neha</td><td>Bosch</td></tr>
+                <tr><td>11</td><td>4MC18IS011</td><td>Harshavardhan T P</td><td>Happiest Minds</td></tr>
+                <tr><td>12</td><td>4MC18IS013</td><td>Harshitha N</td><td>Wipro</td></tr>
+                <tr><td>13</td><td>4MC18IS014</td><td>Hemanth Kumar</td><td>Spurtree</td></tr>
+                <tr><td>14</td><td>4MC18IS015</td><td>Kushala S Babu</td><td>One Trust</td></tr>
+                <tr><td>15</td><td>4MC18IS019</td><td>Moulya R Gowda</td><td>Capgemini</td></tr>
+                <tr><td>16</td><td>4MC18IS020</td><td>Nandan V P</td><td>Happiest Minds</td></tr>
+                <tr><td>17</td><td>4MC18IS021</td><td>Navjot Singh Bhatia</td><td>Mercedes Benz R&D India</td></tr>
+                <tr><td>18</td><td>4MC18IS023</td><td>Nikhil S Y</td><td>Accenture</td></tr>
+                <tr><td>19</td><td>4MC18IS025</td><td>Nisarga B G</td><td>Mercedes Benz R&D India</td></tr>
+                <tr><td>20</td><td>4MC18IS027</td><td>Nithin B M</td><td>Ready Networks</td></tr>
+                <tr><td>21</td><td>4MC18IS028</td><td>Poojitha U A</td><td>Mercedes Benz R&D India</td></tr>
+                <tr><td>22</td><td>4MC18IS029</td><td>Prajna N</td><td>Verzeo</td></tr>
+                <tr><td>23</td><td>4MC18IS031</td><td>Pramath P Hosur</td><td>Protegrity</td></tr>
+                <tr><td>24</td><td>4MC18IS032</td><td>Preksha K</td><td>Quest Global</td></tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Title for 2020-2021 -->
+    <div class="title-container">
+        <h2>Placed Students (2020-2021)</h2>
+    </div>
+
+    <div class="scrollable-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sl No</th>
+                    <th>USN</th>
+                    <th>Name of the Student</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>4MC17IS001</td><td>Aishwarya H S</td><td>Capgemini/M.Tech</td></tr>
+                <tr><td>2</td><td>4MC17IS003</td><td>Akshay S Koundinya</td><td>TCS</td></tr>
+                <tr><td>3</td><td>4MC17IS004</td><td>Amith T H</td><td>Accenture</td></tr>
+                <tr><td>4</td><td>4MC17IS005</td><td>Ankitha R</td><td>Accenture, Capgemini, Itron</td></tr>
+                <tr><td>5</td><td>4MC17IS006</td><td>Azeeza Fathima</td><td>Mindtree</td></tr>
+                <tr><td>6</td><td>4MC17IS007</td><td>Bhoomika Gowda V</td><td>Higher Studies</td></tr>
+                <tr><td>7</td><td>4MC17IS008</td><td>Chandan H R</td><td>TCS</td></tr>
+                <tr><td>8</td><td>4MC17IS009</td><td>Chytra M S</td><td>Happiest Mind Technologies Ltd.</td></tr>
+                <tr><td>9</td><td>4MC17IS010</td><td>Deepak H M</td><td>Creators, TCS</td></tr>
+                <tr><td>10</td><td>4MC17IS011</td><td>Deepu K B</td><td>Surya Software</td></tr>
+                <tr><td>11</td><td>4MC17IS012</td><td>Dhanyashree G N</td><td>Mindtree</td></tr>
+                <tr><td>12</td><td>4MC17IS014</td><td>Gowda Srushti Ramesh</td><td>TCS</td></tr>
+                <tr><td>13</td><td>4MC17IS015</td><td>H K Falguni</td><td>TCS, Accenture, Rakuten</td></tr>
+                <tr><td>14</td><td>4MC17IS016</td><td>Himanshi K</td><td>Accenture</td></tr>
+                <tr><td>15</td><td>4MC17IS018</td><td>Jagadeesh S U</td><td>Amazon India</td></tr>
+                <tr><td>16</td><td>4MC17IS019</td><td>Kavya B K</td><td>Pentagon Space Private Limited</td></tr>
+                <tr><td>17</td><td>4MC17IS021</td><td>Kruthika R</td><td>Accenture</td></tr>
+                <tr><td>18</td><td>4MC17IS026</td><td>Meghana C S</td><td>BOSCH</td></tr>
+                <tr><td>19</td><td>4MC17IS027</td><td>Nayana H D</td><td>Expleo</td></tr>
+                <tr><td>20</td><td>4MC17IS033</td><td>Prateeksha M S</td><td>Accenture, Capgemini</td></tr>
+                <tr><td>21</td><td>4MC17IS034</td><td>Priya N C</td><td>Wolken Software Pvt. Ltd.</td></tr>
+                <tr><td>22</td><td>4MC17IS035</td><td>R Lakshmi</td><td>Mindtree, Expleo</td></tr>
+                <tr><td>23</td><td>4MC17IS038</td><td>Ranjitha V L</td><td>Mercedes Benz, Accenture, Capgemini</td></tr>
+                <tr><td>24</td><td>4MC17IS040</td><td>Rohini G H</td><td>Happiest Minds Technologies Ltd.</td></tr>
+                <tr><td>25</td><td>4MC17IS041</td><td>Roshini H S</td><td>TCS</td></tr>
+                <tr><td>26</td><td>4MC17IS043</td><td>Samhitha Bhat K S</td><td>Accenture</td></tr>
+                <tr><td>27</td><td>4MC17IS044</td><td>Sanathkumar M P</td><td>Accenture, Capgemini</td></tr>
+                <tr><td>28</td><td>4MC17IS046</td><td>Saurav Dash</td><td>JLL</td></tr>
+                <tr><td>29</td><td>4MC17IS048</td><td>Shreya Kishore Pawar</td><td>Xtreme Soft Tech</td></tr>
+                <tr><td>30</td><td>4MC17IS049</td><td>Shubha H A</td><td>Happiest Minds Technologies Ltd.</td></tr>
+                <tr><td>31</td><td>4MC17IS050</td><td>Sinchana H K</td><td>Mercedes Benz</td></tr>
+                <tr><td>32</td><td>4MC17IS051</td><td>Srivatsha E R</td><td>Sakha Quantilus Innovation</td></tr>
+                <tr><td>33</td><td>4MC17IS052</td><td>Sumith D B</td><td>Accenture</td></tr>
+                <tr><td>34</td><td>4MC17IS053</td><td>Supriya</td><td>-</td></tr>
+                <tr><td>35</td><td>4MC17IS054</td><td>Sushma N G</td><td>Mercedes Benz</td></tr>
+                <tr><td>36</td><td>4MC17IS056</td><td>Thilak K G</td><td>TCS</td></tr>
+                <tr><td>37</td><td>4MC17IS058</td><td>Vandana C M</td><td>Temenos</td></tr>
+                <tr><td>38</td><td>4MC17IS060</td><td>Varshitha H P</td><td>Mynd</td></tr>
+                <tr><td>39</td><td>4MC17IS061</td><td>Vikrant Tiwari</td><td>TCS</td></tr>
+                <tr><td>40</td><td>4MC17IS063</td><td>Yashaswini M S</td><td>Wolken Software Pvt. Ltd, Accenture</td></tr>
+                <tr><td>41</td><td>4MC17IS065</td><td>Pooja R</td><td>Capgemini</td></tr>
+                <tr><td>42</td><td>4MC18IS405</td><td>Punith N R</td><td>Wipro</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

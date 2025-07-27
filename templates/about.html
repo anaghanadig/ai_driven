@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #007bff;
+            padding: 15px 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Full Page Container */
+        .full-page-container {
+            margin-top: 50px; /* Avoid overlap with navbar */
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        /* Large MCE Image */
+        .mce-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            margin: 40px 0;
+            display: block;
+        }
+
+        /* Content Styling */
+        .content {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .content h1, .content h2, .content h3 {
+            color: #0d6efd;
+            margin-bottom: 15px;
+            text-align: center; /* Center align the headings */
+        }
+
+        .content p, .content ul {
+            font-size: 20px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .content ul {
+            margin-bottom: 20px;
+        }
+
+        /* Read More Section */
+        .read-more-content {
+            display: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .read-more-btn {
+            color: #0d6efd;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.fade {
+    animation: fadeEffect 1.5s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Usain Bolt Logo">
+        </div>
+        
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/company_registration">Company Registration</a></li>
+            <li><a href="/candidate_registration">Candidate Registration</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/placed_students">Placed Students</a></li>
+        </ul>
+    </nav>
+
+    <!-- Full Page Content -->
+    <div class="full-page-container">
+        <!-- Large MCE Image -->
+        <!-- <img src="{{ url_for('static', filename='images/mce.jpg') }}" alt="Malnad College of Engineering" class="mce-image"> -->
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="{{ url_for('static', filename='images/mce.jpg') }}" alt="Malnad College of Engineering" class="mce-image">
+            </div>
+            <div class="slide fade">
+                <img src="{{ url_for('static', filename='images/mcee.jpg') }}" alt="Malnad College of Engineering" class="mce-image">
+            </div>
+            <div class="slide fade">
+                <img src="{{ url_for('static', filename='images/mce3.png') }}" alt="Malnad College of Engineering" class="mce-image">
+            </div>
+        </div>
+        
+        <!-- Content Section -->
+        <div class="content">
+            <h1>ABOUT  MCE</h1>
+            <p>Welcome to our platform, dedicated to bridging the gap between talented students and top companies. Our team is committed to fostering career growth, innovation, and opportunities for aspiring professionals.</p>
+
+            <h2>WELCOME TO MALNAD COLLEGE OF ENGINEERING</h2>
+<p>Malnad College of Engineering, an Autonomous Institution affiliated with VTU, was established in 1960 as a joint venture of the Government of India, the Government of Karnataka, and the Malnad Technical Education Society.</p>
+
+<!-- Read More Content (Initially Hidden) -->
+<div id="readMoreAbout" class="read-more-content" style="display: none;">
+    <p>Malnad College of Engineering, An Autonomous Institution, Affiliated by VTU, established in the year 1960, during the second 5-year plan, as a joint venture of Government of India, Government of Karnataka and the Malnad Technical Education Society, Hassan.</p>
+    <p>The Malnad College of Engineering is now a reputed engineering college in the country. The college earned the “ISTE Award” as one of the Best Engineering Colleges in the Country in 2007.</p>
+    <p>The Institute is located in the midway (13°N and 76.5°E, altitude 943 mtrs.), between Bengaluru (180 km) and Mangaluru (170 km) on NH-75. Hassan, a district headquarters, has a steady temperate climate throughout the year and enjoys an annual rainfall of about 900 mm.</p>
+    <p>World-famous temples of Belur, Halebidu, Shravanabelagola, and The Master Control Facility for INSAT Satellites are located in Hassan District. The College is built on a 41.28-acre campus and has all the facilities expected in a modern Engineering College.</p>
+    <p>The college offers 9 B.E., 5 M.Tech, M.Sc. (Engg.) by Research, Ph.D., and MCA programs, with about 4000 students on rolls. It is one of the few engineering colleges in the country recognized for conducting the Technical Education Quality Improvement Programme (TEQIP) sponsored by the World Bank.</p>
+    <p>The Training and Placement Centre in the college trains and assists students in securing employment in reputed companies like Tata Consultancy, Infosys, Wipro, L&T, BEL, Fistchner, Builders’ Association of India, etc., through campus recruitment programs.</p>
+</div>
+
+<!-- Read More Button for "About" Section -->
+<span class="read-more-btn" onclick="toggleReadMore('readMoreAbout', this)">Read More...</span>
+
+<h2>HISTORY OF MCE</h2>
+<p>The Late Honorable Shree Chandappa Patil, Indian Administrative Service (IAS), was the brain behind the evolution of Malnad Engineering College, Hassan.</p>
+
+<!-- Read More Content for History Section (Initially Hidden) -->
+<div id="readMoreContent" class="read-more-content" style="display: none;">
+    <p>He was the Hassan District Commissioner then. The Coffee Planters around and other local farmers and many others contributed financially to make this college a reality.</p>
+    <p>Mr. Chandappa Patil was a gentleman of humble origins. He was the first graduate from his village and had a vision to bring education to the masses in Karnataka, however remote the place was.</p>
+    <p>This was his first venture. He worked very closely with the Late and Ex Vice President of India, Mr. Jatti, to open more educational institutions.</p>
+    <p>The college was initially affiliated with the University of Mysore but later changed its affiliation to Visvesvaraya Technological University, Belgaum. In 2007, the college became an autonomous institute.</p>
+</div>
+
+<!-- Read More Button for "History" Section -->
+<span class="read-more-btn" onclick="toggleReadMore('readMoreContent', this)">Read More...</span>
+
+<script>
+    function toggleReadMore(sectionId, btn) {
+        var content = document.getElementById(sectionId);
+
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            btn.textContent = "Read Less...";
+        } else {
+            content.style.display = "none";
+            btn.textContent = "Read More...";
+        }
+    }
+</script>
+<script>
+    let slideIndex = 0;
+    
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+    
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+    
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1; }
+    
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+    
+    document.addEventListener("DOMContentLoaded", showSlides);
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+{% extends "candidate_page.html" %}
+
+{% block title %}Chatbot{% endblock %}
+
+{% block content %}
+<div class="container1">
+    <h1>Chat with our Bot</h1>
+    <form method="post">
+        <label for="user_input">You:</label>
+        <input type="text" id="user_input" name="user_input" required oninput="showBot()" onblur="hideBot()">
+        <button type="submit">Send</button>
+    </form>
+
+    {% if user_input and response %}
+    <div class="chat-response">
+        <p><strong>You:</strong> {{ user_input }}</p>
+        <p><strong>Bot:</strong> {{ response }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Bot Image with Animation -->
+<div class="bot-animation" id="bot">
+    <img src="{{ url_for('static', filename='images/bot.jpg') }}" alt="Chatbot" class="animated-bot">
+</div>
+
+<!-- New Animated Element below the Answers, Always Visible -->
+<div class="additional-animation" id="additionalAnim">
+    <img src="{{ url_for('static', filename='images/bot2.png') }}" alt="Your Animation" class="animated-element">
+</div>
+
+<style>
+    .container1 {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    form {
+        margin-bottom: 20px;
+        margin-left: 20%;
+    }
+
+    label {
+        font-size: 16px; /* Bigger font for label */
+    }
+
+    input[type="text"] {
+        width: 90%; /* Larger text box */
+        padding: 12px; /* Increased padding for better usability */
+        margin: 15px 0; /* Adjusted margin for spacing */
+        font-size: 16px; /* Increased font size */
+        border: 2px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 12px 24px; /* Larger button */
+        font-size: 16px; /* Larger button text */
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .chat-response {
+        margin-top: 20px;
+        font-size: 18px; /* Larger text for answers */
+        margin-left: 20%;
+    }
+
+    .chat-response p {
+        margin: 10px 0;
+    }
+
+    /* Bot Animation */
+    .bot-animation {
+        position: fixed;
+        bottom: 60px; /* Positioned slightly higher for a better view */
+        right: 20px;
+        display: none;
+        animation: pop 0.5s ease-out forwards;
+    }
+
+    /* Keyframe animation for popping up the bot */
+    @keyframes pop {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1.5); /* Make bot larger on pop */
+            opacity: 1;
+        }
+    }
+
+    .animated-bot {
+        width: 150px;  /* Larger bot size */
+        height: 150px;
+        animation: bounce 2s ease-in-out infinite;
+    }
+
+    /* Bouncing effect for the bot */
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-30px); /* Bigger bounce */
+        }
+    }
+
+    /* New Additional Animated Element */
+    .additional-animation {
+        position: fixed;
+        bottom: 20px; /* Positioned at the bottom of the screen */
+        left: 45%;
+        transform: translateX(-50%);
+        animation: shake 1s ease-out infinite, fadeInOut 3s ease-in-out infinite;
+    }
+
+    .animated-element {
+        width: 300px;  /* Adjust the size of your image */
+        height: 250px;
+    }
+
+    /* Shake effect for the additional element */
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+    }
+
+    /* Fade In and Out effect */
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+</style>
+
+<script>
+    // Show bot image when user starts typing
+    function showBot() {
+        const bot = document.getElementById('bot');
+        bot.style.display = 'block';
+    }
+
+    // Hide bot image when user finishes typing (on blur)
+    function hideBot() {
+        const bot = document.getElementById('bot');
+        bot.style.display = 'none';
+    }
+</script>
+
+{% endblock %}
